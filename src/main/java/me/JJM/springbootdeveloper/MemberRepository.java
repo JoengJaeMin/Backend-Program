@@ -1,4 +1,5 @@
 package me.JJM.springbootdeveloper;
 
-public class MemberRepository {
+public class MemberRepository extends JpaRepository<Member, long> {
+
 }
