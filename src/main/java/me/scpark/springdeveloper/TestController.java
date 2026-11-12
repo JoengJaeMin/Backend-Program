@@ -30,6 +30,7 @@ class TestControllerTest {
     private MemberRepository memberRepository;
     @BeforeEach
     public void mockMvcSetUp() {
+        // 실제 스프링 웹 컨텍스트를 사용해 MockMvc 테스트 환경을 초기화한다.
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .build();
     }

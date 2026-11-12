@@ -9,7 +9,7 @@ public class JUnitTest {
         int a = 1;
         int b = 2;
         int sum = 3;
-        Assertions.assertEquals(sum, a + b);
+        Assertions.assertEquals(sum, a + b); // 값이 같은지 확인
     }
 
     @DisplayName("1 + 3는 3이다.")

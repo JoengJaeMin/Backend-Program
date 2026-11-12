@@ -19,11 +19,7 @@ public class Member {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Setter(AccessLevel.PUBLIC)
-
-
-    public Member(String name) {
+    public void changeName(String name) {
         this.name = name;
     }
-
 }
