@@ -3,8 +3,11 @@ package me.scpark.springdeveloper.service;
 import lombok.RequiredArgsConstructor;
 import me.scpark.springdeveloper.domain.Article;
 import me.scpark.springdeveloper.dto.AddArticleRequest;
+import me.scpark.springdeveloper.dto.ArticleUpdateRequest;
+import me.scpark.springdeveloper.dto.UpdateArticleRequest;
 import me.scpark.springdeveloper.repository.BlogRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,13 +29,34 @@ public class BlogService {
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
 
-    public Article getById(Long id) {
-        return findById(id);
-    }
-
     public void delete(long id) {
         blogRepository.deleteById(id);
     }
 
+    @Transactional
+    public Article update(long id, UpdateArticleRequest request) {
+        Article article = blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+        article.update(request.getTitle(), request.getContent());
+        return article;
+    }
+
+    //    public Article update(Long id, ArticleUpdateRequest req) {
+//        Article article = blogRepository.findById(id)
+//                .orElseThrow(() -> new IllegalArgumentException("Article Not Found"));
+//
+//        article.update(req.getTitle(), req.getContent());
+//
+//        blogRepository.save(article);
+//
+//        return article;
+//    }
+    public Article update(Long id, ArticleUpdateRequest req) {
+        Article article = blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Article Not Found"));
+        article.update(req.getTitle(), req.getContent());
+        blogRepository.save(article);
+        return article;
+    }
 
 }
