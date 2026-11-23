@@ -119,7 +119,7 @@ class BlogApiControllerTest {
                 .andExpect(jsonPath("$.length()").value(2))
                 .andExpect(jsonPath("$[0].title").value("제목1"))
                 .andExpect(jsonPath("$[0].content").value("내용1"))
-                .andExpect(jsonPath("$[1].title").value("제목2"))
+                .andExpect(jsonPat  h("$[1].title").value("제목2"))
                 .andExpect(jsonPath("$[1].content").value("내용2"));
     }
 }

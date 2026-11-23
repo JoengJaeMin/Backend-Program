@@ -15,8 +15,8 @@
         <p>나이</p>
         <p>취미</p>
         <ul>
-            <li>운동</li>
-            <span><(대표 취미)/span>
+            <li th:each="hobby:${hobby}">운동</li>
+            <span th:if="${hobby=='운동'}">(대표 취미)</span>
         </ul>
     </div>
     <a href="">글보기</a>
