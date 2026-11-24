@@ -1,6 +1,10 @@
 plugins {
     id 'java'
+<<<<<<< HEAD
     id 'org.springframework.boot' version '3.4.0'
+=======
+    id 'org.springframework.boot' version '3.4.0' // Spring Boot 버전 3.4.0으로.
+>>>>>>> JJM/master
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
@@ -9,7 +13,11 @@ version '1.0'
 
 java {
     toolchain {
+<<<<<<< HEAD
         languageVersion = JavaLanguageVersion.of(22)
+=======
+        languageVersion = JavaLanguageVersion.of(22) // java는 oracle jdk 22
+>>>>>>> JJM/master
     }
 }
 
@@ -18,6 +26,7 @@ repositories {
     mavenCentral()
 }
 
+<<<<<<< HEAD
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // 스프링 데이터 JPA
@@ -33,3 +42,15 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+=======
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+
+test {
+    useJUnitPlatform()
+}
+>>>>>>> JJM/master
